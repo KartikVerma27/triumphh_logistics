@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  google_maps_flutter: ^2.0.6
   file_picker: ^5.2.10
   http: ^0.13.3
   mysql1: ^0.20.0

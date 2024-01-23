@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'screens.dart';
 import 'signup_screen.dart';
+
 void main() => runApp(MaterialApp(
+
+
   home: Scaffold(
     // appBar: AppBar(
     //   title: Image.asset('Images/logo.png',
@@ -13,6 +16,7 @@ void main() => runApp(MaterialApp(
     //   backgroundColor: Colors.blueGrey[900],
     // ),
     body:  Center(
+
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,7 +39,8 @@ void main() => runApp(MaterialApp(
             ],
           ),
           SizedBox(height: 40),
-          CombinedGradientBox(),
+          CombinedGradientBox(onUsernameChanged: (value) {},
+            onPasswordChanged: (value) {},),
           SizedBox(height: 10),
           TransparentButton(text: 'Forgot Password?', onPressed: () {
             // Add your logic for "Forgot Password?" button here
@@ -44,10 +49,10 @@ void main() => runApp(MaterialApp(
       ),
     ),
     backgroundColor: Color(0xFF231F20),
-    floatingActionButton: FloatingActionButton(
-      onPressed: () {  },
-      child: Text('next'),
-    ),
+    // floatingActionButton: FloatingActionButton(
+    //   onPressed: () {  },
+    //   child: Text('next'),
+    // ),
   )
 ));
 
@@ -111,6 +116,11 @@ class RoundedButton extends StatelessWidget {
 
 
 class CombinedGradientBox extends StatelessWidget {
+  final Function(String) onUsernameChanged;
+  final Function(String) onPasswordChanged;
+
+  CombinedGradientBox({required this.onUsernameChanged, required this.onPasswordChanged});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -137,6 +147,7 @@ class CombinedGradientBox extends StatelessWidget {
           ),
           SizedBox(height: 10),
           TextField(
+            onChanged: (value) => onUsernameChanged(value),
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
               filled: true,
@@ -155,6 +166,7 @@ class CombinedGradientBox extends StatelessWidget {
           ),
           SizedBox(height: 10),
           TextField(
+            onChanged: (value) => onPasswordChanged(value),
             obscureText: true,
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(

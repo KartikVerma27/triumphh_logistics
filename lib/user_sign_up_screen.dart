@@ -275,8 +275,7 @@ class _UserSignUpScreenState extends State<UserSignUpScreen> {
     );
   }
   void _submitUserData() async {
-    String aname=_nameController.text;
-    print(aname);
+
 
 
     // Convert data to JSON format
